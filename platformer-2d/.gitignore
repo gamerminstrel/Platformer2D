@@ -1,0 +1,33 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot-specific
+.import/
+.export/
+.export/
+*.import
+*.godot/tmp/
+
+# Mono/C# build files
+bin/
+obj/
+.mono/
+data_*/Mono/
+mono_crash.*
+
+# Godot editor config
+*.godot/
+*.tres
+*.res
+*.translation
+
+# VS Code settings (optional, if you want to keep these local)
+.vscode/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# User-specific
+*.log
