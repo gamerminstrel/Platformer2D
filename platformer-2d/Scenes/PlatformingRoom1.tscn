@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://brox7xwqu8n2p"]
+
+[ext_resource type="Texture2D" uid="uid://gkolhhmcir5i" path="res://icon.svg" id="1_x8ibm"]
+[ext_resource type="Script" uid="uid://dl252h15q6let" path="res://Scripts/PlayerCharacter.cs" id="2_q50t3"]
+[ext_resource type="Texture2D" uid="uid://cludqp11kak4v" path="res://Assets/Placeholders/Grappling Hook Placeholder.png" id="3_123ox"]
+[ext_resource type="Script" uid="uid://wqgicgs2aggk" path="res://Scripts/GrappleHook.cs" id="4_eibmp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q50t3"]
+size = Vector2(130, 130)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q50t3"]
+radius = 63.0
+height = 126.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x8ibm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x8ibm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eibmp"]
+radius = 896.27747
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Throwaway Platform" type="Sprite2D" parent="."]
+position = Vector2(1000, 750)
+scale = Vector2(6, 0.5)
+texture = ExtResource("1_x8ibm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Throwaway Platform"]
+scale = Vector2(1, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Throwaway Platform/StaticBody2D"]
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_q50t3")
+
+[node name="PlayerCharacter" type="CharacterBody2D" parent="."]
+position = Vector2(1000, 350)
+script = ExtResource("2_q50t3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
+shape = SubResource("CapsuleShape2D_q50t3")
+
+[node name="CharacterAnimation" type="AnimatedSprite2D" parent="PlayerCharacter"]
+sprite_frames = SubResource("SpriteFrames_x8ibm")
+
+[node name="GrappleHook" type="Sprite2D" parent="."]
+position = Vector2(700, 350)
+texture = ExtResource("3_123ox")
+script = ExtResource("4_eibmp")
+
+[node name="GrappleDetectionRange" type="Area2D" parent="GrappleHook"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrappleHook/GrappleDetectionRange"]
+scale = Vector2(1.359, 1.359)
+shape = SubResource("CircleShape2D_eibmp")

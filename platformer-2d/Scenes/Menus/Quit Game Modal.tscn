@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsnb41bnffhyr"]
+
+[ext_resource type="Script" uid="uid://bse11vq06icls" path="res://Scripts/QuitGameModal.cs" id="1_vtpl5"]
+[ext_resource type="Texture2D" uid="uid://gkolhhmcir5i" path="res://icon.svg" id="2_wqh3f"]
+[ext_resource type="Script" uid="uid://qrvr8p4l51vq" path="res://Scripts/UiIndicator.cs" id="3_6ghcc"]
+[ext_resource type="Script" uid="uid://ox8o0vemhrxl" path="res://Scripts/Helpers/ResponsiveGrid.cs" id="4_6ghcc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_03som"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wqh3f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -152.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_vtpl5")
+
+[node name="SimpleOverlay" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.76862746, 0.4)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 350
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "Are you sure you'd like to quit?"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="QuitBtn" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../KeepPlayingBtn")
+focus_next = NodePath("../KeepPlayingBtn")
+focus_previous = NodePath("../KeepPlayingBtn")
+theme_override_font_sizes/font_size = 50
+text = "Yes, Quit!
+"
+
+[node name="KeepPlayingBtn" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../QuitBtn")
+focus_next = NodePath("../QuitBtn")
+focus_previous = NodePath("../QuitBtn")
+theme_override_font_sizes/font_size = 50
+text = "No, Keep Playing!"
+
+[node name="UI Indicator" type="AnimatedSprite2D" parent="."]
+position = Vector2(159, 512)
+sprite_frames = SubResource("SpriteFrames_03som")
+centered = false
+script = ExtResource("3_6ghcc")
+
+[node name="ResponsiveGridHelper" type="Node" parent="."]
+script = ExtResource("4_6ghcc")

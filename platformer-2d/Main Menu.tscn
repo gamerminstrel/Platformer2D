@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0iw7fpdsl3kh"]
+
+[ext_resource type="Script" uid="uid://qvbm18lt27a" path="res://Scripts/DevControls.cs" id="1_5b7ti"]
+[ext_resource type="Script" uid="uid://pnvsf82no0ox" path="res://Scripts/MainMenu.cs" id="2_dvdtt"]
+
+[node name="Root" type="Node2D"]
+script = ExtResource("1_5b7ti")
+
+[node name="DebugText" type="Label" parent="."]
+offset_right = 112.0
+offset_bottom = 73.0
+text = "ldjkfghslkjfvbls"
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_dvdtt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="NewGameBtn" type="Button" parent="MainMenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../LoadGameBtn")
+theme_override_font_sizes/font_size = 50
+text = "New Game"
+
+[node name="LoadGameBtn" type="Button" parent="MainMenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../NewGameBtn")
+focus_neighbor_bottom = NodePath("../OptionsBtn")
+theme_override_font_sizes/font_size = 50
+text = "Load Game"
+
+[node name="OptionsBtn" type="Button" parent="MainMenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../LoadGameBtn")
+focus_neighbor_bottom = NodePath("../QuitGameBtn")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="QuitGameBtn" type="Button" parent="MainMenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../OptionsBtn")
+theme_override_font_sizes/font_size = 50
+text = "Quit Game"
