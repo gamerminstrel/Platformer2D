@@ -1,19 +1,86 @@
-[gd_scene load_steps=9 format=3 uid="uid://brox7xwqu8n2p"]
+[gd_scene load_steps=21 format=4 uid="uid://brox7xwqu8n2p"]
 
 [ext_resource type="Texture2D" uid="uid://gkolhhmcir5i" path="res://icon.svg" id="1_x8ibm"]
 [ext_resource type="Script" uid="uid://dl252h15q6let" path="res://Scripts/PlayerCharacter.cs" id="2_q50t3"]
 [ext_resource type="Texture2D" uid="uid://cludqp11kak4v" path="res://Assets/Placeholders/Grappling Hook Placeholder.png" id="3_123ox"]
 [ext_resource type="Script" uid="uid://wqgicgs2aggk" path="res://Scripts/GrappleHook.cs" id="4_eibmp"]
+[ext_resource type="Texture2D" uid="uid://chntie6p38fo1" path="res://Assets/Placeholders/gustave anims.png" id="4_lol5g"]
+[ext_resource type="Script" uid="uid://cxfo3hcxcdvin" path="res://Scripts/PlayerCam.cs" id="4_thagg"]
+[ext_resource type="Script" uid="uid://qvbm18lt27a" path="res://Scripts/DevControls.cs" id="5_qu5kn"]
+[ext_resource type="TileSet" uid="uid://bdvvr4d5kef5x" path="res://Assets/Placeholders/debug_tileset.tres" id="6_saixi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q50t3"]
 size = Vector2(130, 130)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q50t3"]
-radius = 63.0
-height = 126.0
+radius = 12.0
+height = 64.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lol5g"]
+atlas = ExtResource("4_lol5g")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gbcp"]
+atlas = ExtResource("4_lol5g")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dynm"]
+atlas = ExtResource("4_lol5g")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkqxk"]
+atlas = ExtResource("4_lol5g")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy76i"]
+atlas = ExtResource("4_lol5g")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vitq4"]
+atlas = ExtResource("4_lol5g")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exc20"]
+atlas = ExtResource("4_lol5g")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy60y"]
+atlas = ExtResource("4_lol5g")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x8ibm"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lol5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gbcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dynm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkqxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy76i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vitq4")
+}],
+"loop": true,
+"name": &"Jog",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exc20")
+}],
+"loop": true,
+"name": &"Placeholder_idle",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_x8ibm")
@@ -21,10 +88,19 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy60y")
+}],
+"loop": false,
+"name": &"idle2Jog",
+"speed": 6.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_eibmp"]
-radius = 896.27747
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gbcp"]
+radius = 32.0
+height = 64.0
 
 [node name="Node2D" type="Node2D"]
 
@@ -49,6 +125,10 @@ shape = SubResource("CapsuleShape2D_q50t3")
 
 [node name="CharacterAnimation" type="AnimatedSprite2D" parent="PlayerCharacter"]
 sprite_frames = SubResource("SpriteFrames_x8ibm")
+animation = &"Placeholder_idle"
+
+[node name="PlayerCam" type="Camera2D" parent="PlayerCharacter"]
+script = ExtResource("4_thagg")
 
 [node name="GrappleHook" type="Sprite2D" parent="."]
 position = Vector2(700, 350)
@@ -59,4 +139,21 @@ script = ExtResource("4_eibmp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrappleHook/GrappleDetectionRange"]
 scale = Vector2(1.359, 1.359)
-shape = SubResource("CircleShape2D_eibmp")
+shape = SubResource("CapsuleShape2D_3gbcp")
+
+[node name="myfirstTileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-261, 78)
+tile_map_data = PackedByteArray("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")
+tile_set = ExtResource("6_saixi")
+
+[node name="UI Elements" type="CanvasLayer" parent="."]
+
+[node name="DevControls" type="Node" parent="UI Elements"]
+script = ExtResource("5_qu5kn")
+
+[node name="Button" type="Button" parent="UI Elements"]
+offset_left = 86.0
+offset_top = 48.0
+offset_right = 222.0
+offset_bottom = 184.0
+icon = ExtResource("1_x8ibm")
