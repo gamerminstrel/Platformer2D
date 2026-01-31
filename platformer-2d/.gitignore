@@ -18,8 +18,8 @@ mono_crash.*
 
 # Godot editor config
 *.godot/
-*.tres
-*.res
+
+# *.res
 *.translation
 
 # VS Code settings (optional, if you want to keep these local)

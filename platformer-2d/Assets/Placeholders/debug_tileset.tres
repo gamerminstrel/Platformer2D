@@ -1,0 +1,68 @@
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://bdvvr4d5kef5x"]
+
+[ext_resource type="Texture2D" uid="uid://bye76ftdwqh0f" path="res://Assets/Placeholders/Tileset_Template_V1.png" id="1_owpvg"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_85d54"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6hlu2"]
+texture = ExtResource("1_owpvg")
+texture_region_size = Vector2i(32, 32)
+0:11/0 = 0
+0:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, 16, 16, 16, 5.333334)
+1:11/0 = 0
+1:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, -16, 16, -16, 5.333334, 16, -5.333333)
+2:11/0 = 0
+2:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -5.333333, 16, -16, 16, 16, -16, 16)
+1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, 16, -16, 16, 16, -16, 16)
+0:7/0 = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, 0, 16, -16)
+1:7/0 = 0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, -16, -16, 16, -16, 16, 16)
+6:7/0 = 0
+7:7/0 = 0
+7:6/0 = 0
+6:6/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+11:12/0 = 0
+10:12/0 = 0
+9:12/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:2/0 = 0
+9:2/0 = 0
+9:1/0 = 0
+12:0/0 = 0
+12:1/0 = 0
+12:6/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+13:6/0 = 0
+13:1/0 = 0
+13:0/0 = 0
+16:5/0 = 0
+16:4/0 = 0
+16:3/0 = 0
+19:3/0 = 0
+19:4/0 = 0
+19:5/0 = 0
+19:6/0 = 0
+19:7/0 = 0
+19:8/0 = 0
+16:8/0 = 0
+16:7/0 = 0
+16:6/0 = 0
+0:6/0 = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 16, 0.09326553, -16, 16)
+6:1/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetScenesCollectionSource_85d54")
+sources/1 = SubResource("TileSetAtlasSource_6hlu2")
