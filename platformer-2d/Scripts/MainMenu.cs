@@ -16,6 +16,7 @@ public partial class MainMenu : Control
 		var optionsBtn = vbox.GetNode<Button>("OptionsBtn");
 		var quitGameBtn = vbox.GetNode<Button>("QuitGameBtn");
 
+
 		newGameBtn.Pressed += OnNewGamePressed;
 		loadGameBtn.Pressed += OnLoadGamePressed;
 		optionsBtn.Pressed += OnOptionsPressed;
